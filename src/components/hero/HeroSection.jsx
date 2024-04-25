@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import HeroImage from '../../assets/images/hero-image.jpg';
 import StarsImage from '../../assets/images/stars.png';
+import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
-    <div className='font-poppins'>
+    <div className='font-poppins overflow-x-hidden'>
       <div
         className="relative pt-[120px] pb-[110px] lg:pt-[150px] px-10"
       >
@@ -14,41 +15,65 @@ const HeroSection = () => {
           <div className="flex flex-wrap items-center -mx-4">
             <div className="w-full px-4 lg:w-5/12">
               <div className="hero-content">
-                <h1
-                  className="mb-5 font-bold !leading-[1.208] text-transparent bg-clip-text bg-gradient-to-tr from-[#477998] to-[#5CCE61] sm:text-[42px] lg:text-[40px] xl:text-4.2xl"
-                >
-                  Investissez intelligemment, <br />
-                  <span className='text-7xl'>Créez votre patrimoine.</span>
-                </h1>
-                <p
-                  className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6"
-                >
-                  Chez Global Immobilier, nous vous accompagnons dans la réalisation de vos objectifs immobiliers.
-                  Que vous soyez un investisseur chevronné ou un premier acheteur, nous mettons à votre disposition
-                  notre expertise et notre connaissance approfondie du marché pour vous aider à trouver la propriété idéale.
-                </p>
-                <ul className="flex flex-wrap items-center">
-                  <li>
-                    <Link
-                      to="/contact"
-                      className="bg-blue-600/80 inline-flex hover:bg-[#3D925A] items-center justify-center px-6 py-3 text-base font-medium text-center text-white rounded-md bg-primary hover:bg-blue-dark lg:px-7"
-                    >
-                      Contactez-nous
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/services"
-                      className="text-[#08090A] inline-flex items-center justify-center py-3 px-5 text-center text-base hover:underline font-medium hover:text-teal-500">
-                      Découvrir nos Services <span className='ml-2 text-xl'><IoIosArrowDroprightCircle /></span>
-                    </Link>
-                  </li>
-                </ul>
+                <motion.div variants={{
+                  visible: { opacity: 1, y: 0 },
+                  hidden: { opacity: 0, y: 75 }
+                }}
+                  initial='hidden'
+                  animate='visible'
+                  transition={{ duration: 0.5, delay: 0.25 }}>
+                  <h1
+                    className="mb-5 font-bold !leading-[1.208] text-transparent bg-clip-text bg-gradient-to-tr from-[#477998] to-[#5CCE61] sm:text-3xl text:2xl"
+                  >
+                    Investissez intelligemment, <br />
+                    <span className='sm:text-7xl text-5xl'>Créez votre patrimoine.</span>
+                  </h1>
+                  <p
+                    className="mb-8 max-w-[480px] text-body-color dark:text-dark-6 text-sm sm:text-base"
+                  >
+                    Chez Global Immobilier, nous vous accompagnons dans la réalisation de vos objectifs immobiliers.
+                    Que vous soyez un investisseur chevronné ou un premier acheteur, nous mettons à votre disposition
+                    notre expertise et notre connaissance approfondie du marché pour vous aider à trouver la propriété idéale.
+                  </p>
+                </motion.div>
+                <motion.div variants={{
+                  visible: { opacity: 1, x: 0 },
+                  hidden: { opacity: 0, x: -75 }
+                }}
+                  initial='hidden'
+                  animate='visible'
+                  transition={{ duration: 0.5, delay: 0.25 }}>
+                  <ul className="flex flex-wrap items-center">
+                    <li>
+                      <Link
+                        to="/contact"
+                        className="bg-blue-600/80 inline-flex hover:bg-[#3D925A] items-center justify-center px-6 py-3 text-base font-medium text-center text-white rounded-md bg-primary hover:bg-blue-dark lg:px-7"
+                      >
+                        Contactez-nous
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/services"
+                        className="text-[#08090A] inline-flex items-center justify-center py-3 px-5 text-center text-base hover:underline font-medium hover:text-teal-500">
+                        Découvrir nos Services <span className='ml-2 text-xl'><IoIosArrowDroprightCircle /></span>
+                      </Link>
+                    </li>
+                  </ul>
+                </motion.div>
               </div>
             </div>
             <div className="hidden px-4 lg:block lg:w-1/12"></div>
             <div className="w-full px-4 lg:w-6/12">
               <div className="lg:ml-auto lg:text-right">
-                <div className="relative z-10 inline-block pt-11 lg:pt-0 mt-6">
+                <motion.div
+                  variants={{
+                    visible: { opacity: 1, x: 0, filter: "blur(0px)" },
+                    hidden: { opacity: 0, x: 75, filter: "blur(5px)" }
+                  }}
+                  initial='hidden'
+                  animate='visible'
+                  transition={{ duration: 0.5, delay: 0.25 }}
+                  className="relative z-10 inline-block pt-11 lg:pt-0 mt-6">
                   <img
                     src={HeroImage}
                     alt="hero"
@@ -93,7 +118,7 @@ const HeroSection = () => {
                       <circle cx="90.5" cy="90.5" r="2.5" fill="#3056D3" />
                     </svg>
                   </span>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
