@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
+import HeroImage from '../../assets/images/hero-image.jpg';
+import StarsImage from '../../assets/images/stars.png';
 
 const HeroSection = () => {
   return (
     <div className='font-poppins'>
       <div
-        className="relative bg-white dark:bg-dark pt-[120px] pb-[110px] lg:pt-[150px] px-10"
+        className="relative pt-[120px] pb-[110px] lg:pt-[150px] px-10"
       >
         <div className="container mx-auto">
           <div className="flex flex-wrap items-center -mx-4">
@@ -21,7 +23,7 @@ const HeroSection = () => {
                 <p
                   className="mb-8 max-w-[480px] text-base text-body-color dark:text-dark-6"
                 >
-                  Chez Global Immobilière, nous vous accompagnons dans la réalisation de vos objectifs immobiliers.
+                  Chez Global Immobilier, nous vous accompagnons dans la réalisation de vos objectifs immobiliers.
                   Que vous soyez un investisseur chevronné ou un premier acheteur, nous mettons à votre disposition
                   notre expertise et notre connaissance approfondie du marché pour vous aider à trouver la propriété idéale.
                 </p>
@@ -46,11 +48,15 @@ const HeroSection = () => {
             <div className="hidden px-4 lg:block lg:w-1/12"></div>
             <div className="w-full px-4 lg:w-6/12">
               <div className="lg:ml-auto lg:text-right">
-                <div className="relative z-10 inline-block pt-11 lg:pt-0">
+                <div className="relative z-10 inline-block pt-11 lg:pt-0 mt-6">
                   <img
-                    src="https://cdn.tailgrids.com/2.0/image/marketing/images/hero/hero-image-01.png"
+                    src={HeroImage}
                     alt="hero"
-                    className="max-w-full lg:ml-auto"
+                    className="max-w-full lg:ml-auto rounded-l-[20%] rounded-br-[5%]"
+                  />
+                  <img src={StarsImage}
+                    alt="stars"
+                    className='z-20 w-28 absolute mt-[-98%] right-[-5%] opacity-70 hover:opacity-100'
                   />
                   <span className="absolute -left-8 -bottom-8 z-[-1]">
                     <svg
