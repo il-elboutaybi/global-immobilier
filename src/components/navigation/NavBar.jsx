@@ -28,7 +28,6 @@ const NavBar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         <div className={`${open ? '' : 'hidden'} h-[15rem]`}>
           <ul>
             <li className='hover:text-[#5cce61] text-[#08090a] hover:underline font-semibold pl-8 pb-4 pt-6'><Link to="/">Acceuil</Link></li>
