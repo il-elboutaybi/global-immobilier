@@ -55,7 +55,7 @@ const Footer = () => {
           <div className="pr-4">
             <h6 className="font-medium text-[#5cce61]">Liens utiles</h6>
             <ul className='flex flex-col'>
-              <Link to={"/terms"} className="py-2 text-sm cursor-pointer font-semibold">
+              <Link to={"/about"} className="py-2 text-sm cursor-pointer font-semibold">
                 À propos
               </Link>
               <Link to={"/services"} className="py-2 text-sm cursor-pointer font-semibold">

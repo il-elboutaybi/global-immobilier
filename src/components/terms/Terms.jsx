@@ -36,7 +36,7 @@ const Terms = () => {
         <p className="mb-4">Des mesures techniques et organisationnelles sont mises en place pour protéger vos données contre la perte, l'accès non autorisé ou la modification. </p>
 
         <h2 className="text-2xl font-semibold mb-4"> Vos droits sur vos données</h2>
-        <p className="mb-4">Conformément au RGPD, vous disposez de droits sur vos données (accès, rectification, opposition, etc.). Pour les exercer, contactez-nous via [insérer adresse email ou méthode de contact].</p>
+        <p className="mb-4">Conformément au RGPD, vous disposez de droits sur vos données (accès, rectification, opposition, etc.). Pour les exercer, contactez-nous via global@nextglobalcall.com.</p>
 
         <h2 className="text-2xl font-semibold mb-4">Changements</h2>
         <p className="mb-4">Notre Politique de Confidentialité peut évoluer. Veuillez consulter la dernière version sur notre site. </p>
