@@ -6,7 +6,7 @@ const Terms = () => {
       <section className="container mx-auto py-12">
         <h1 className="text-3xl font-bold mb-6">Politique de Confidentialité</h1>
 
-        <p className="mb-4">Chez Global Immobilière, la protection de vos données personnelles est une priorité absolue.
+        <p className="mb-4">Chez Global Immobilier, la protection de vos données personnelles est une priorité absolue.
           Cette Politique de Confidentialité présente nos pratiques en matière de collecte, d'utilisation et de
           protection de vos informations lorsque vous interagissez avec nos services. Notre engagement : vous accompagner de manière transparente tout en respectant les réglementations en vigueur.</p>
 
