@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import GlobalLogo from "../../assets/global.png";
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';

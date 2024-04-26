@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import HeroImage from '../../assets/images/hero-image.jpg';
