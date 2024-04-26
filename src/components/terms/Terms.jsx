@@ -42,7 +42,7 @@ const Terms = () => {
         <p className="mb-4">Notre Politique de Confidentialité peut évoluer. Veuillez consulter la dernière version sur notre site. </p>
 
         <h2 className="text-2xl font-semibold mb-4">Nous contacter</h2>
-        <p>Pour toute question, adressez-vous à [insérer adresse email ou méthode de contact].</p>
+        <p>Pour toute question, adressez-vous à global@nextglobalcall.com.</p>
       </section>
     </div>
   )
