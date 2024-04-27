@@ -1,12 +1,10 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const multer = require("multer");
-const path = require("path"); // Import the path module
-
-const RecrutementModel = require('./models/Recrutement');
-const ContactModel = require('./models/Contact');
-
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import path from 'path';
+import multer from 'multer';
+import RecrutementModel from './models/Recrutement';
+import ContactModel from './models/Contact';
 
 const app = express();
 
@@ -50,15 +48,30 @@ app.post('/register', upload.single("file"), async (req, res) => {
 
 
 
-app.post('/contact',(req ,res)=> {
+app.post('/contact', (req, res) => {
+    const { entreprise, telephone, email, message } = req.body;
+
+    // Verify that all fields are provided
+    if (!entreprise || !telephone || !email || !message) {
+        return res.status(400).json({ message: "All fields are required" });
+    }
+
+    // Verify email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        return res.status(400).json({ message: "Invalid email format" });
+    }
+
+    // Verify telephone format
+    const telephoneRegex = /^\d{10}$/;
+    if (!telephoneRegex.test(telephone)) {
+        return res.status(400).json({ message: "Invalid telephone format. Must be 10 digits" });
+    }
 
     ContactModel.create(req.body)
-    .then(Contact => res.json(Contact))
-    .catch(err => res.json(err))
-
-
-})
-
+        .then(Contact => res.json(Contact))
+        .catch(err => res.json(err));
+});
 
 app.listen(3000, () => {
     console.log("server is running");
