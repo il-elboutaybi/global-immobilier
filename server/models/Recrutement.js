@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const RecrutementSchema = new mongoose.Schema({
     prenom: String,
@@ -13,6 +13,6 @@ const RecrutementSchema = new mongoose.Schema({
 RecrutementSchema.index({ email: 1, telephone: 1 }, { unique: true });
 
 const RecrutementModel = mongoose.model('recrutement', RecrutementSchema);
-module.exports = RecrutementModel;
+export default RecrutementModel;
 
 

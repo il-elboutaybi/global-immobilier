@@ -3,18 +3,22 @@ import mongoose from 'mongoose';
 const ContactSchema = new mongoose.Schema({
     entreprise: {
         type: String,
-        required: true
+        required: true,
+        index: false
     },
     email: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     telephone: {
         type: String,
-        required: true
+        required: true,
+        index: true
     },
     message: {
-        type: String
+        type: String,
+        index: false
     }
 });
 
