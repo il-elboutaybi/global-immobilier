@@ -19,10 +19,19 @@ const Contact = () => {
       telephone,
       message
     })
-      .then(result => console.log(result))
-      .catch(err => console.log(err.message));
+    .then(result => {
+      toast.success("Votre message a été envoyé avec succès");
+      clearFields(); 
+      console.log(result);
+    })
+    .catch(err => {
+      if (err.response) {
+        toast.error(err.response.data.message);
+      } else {
+        toast.error("Une erreur s'est produite. Veuillez réessayer."); 
+      }
+    });
     clearFields();
-    toast.success("Votre message a été envoyé avec succès");
   }
 
   const clearFields = () => {

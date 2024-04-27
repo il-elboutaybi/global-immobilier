@@ -60,19 +60,19 @@ app.post('/contact', (req, res) => {
 
     // Verify that all fields are provided
     if (!entreprise || !telephone || !email) {
-        return res.status(400).json({ message: "enterprise, telephone & email are required." });
+        return res.status(400).json({ message: "entreprise, téléphone et email sont requis." });
     }
 
     // Verify email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-        return res.status(400).json({ message: "Invalid email format" });
+        return res.status(400).json({ message: "Format de courrier électronique invalide" });
     }
 
     // Verify telephone format
     const telephoneRegex = /^\d{10}$/;
     if (!telephoneRegex.test(telephone)) {
-        return res.status(400).json({ message: "Invalid telephone format. Must be 10 digits" });
+        return res.status(400).json({ message: "Format de téléphone invalide. Doit être de 10 chiffres" });
     }
 
     ContactModel.create(req.body)
