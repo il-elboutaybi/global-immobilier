@@ -56,7 +56,7 @@ app.post('/register', upload.single("file"), async (req, res) => {
 });
 
 app.post('/contact', (req, res) => {
-    const { entreprise, telephone, email, message } = req.body;
+    const { entreprise, telephone, email } = req.body;
 
     // Verify that all fields are provided
     if (!entreprise || !telephone || !email) {
