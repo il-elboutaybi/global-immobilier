@@ -6,14 +6,23 @@ import multer from 'multer';
 import RecrutementModel from './models/Recrutement.js';
 import ContactModel from './models/Contact.js';
 import dotenv from 'dotenv';
+import csrf from 'csurf'; // Import csurf middleware
+import helmet from 'helmet'; // Import helmet middleware
 
 const app = express();
 const __dirname = path.resolve(); // Get absolute path for portability
 
+app.use(helmet()); // Use helmet middleware to enhance security
 app.use(express.json());
 app.use(cors());
 app.use('/files', express.static(path.join(__dirname, 'files')));
 dotenv.config();
+
+// CSRF protection middleware
+app.use(csrf({ cookie: true }));
+
+// Disable X-Powered-By header
+app.disable('x-powered-by');
 
 // Connect to MongoDB using an async IIFE for cleaner connection handling
 (async () => {
