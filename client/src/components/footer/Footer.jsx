@@ -1,8 +1,45 @@
-import React from 'react'
+import React from 'react';
 import { FaFacebookSquare, FaInstagram, FaTwitterSquare } from 'react-icons/fa'
 import { Link } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
+import toast from 'react-hot-toast';
 
 const Footer = () => {
+
+  const sendEmail = (e) => {
+
+    e.preventDefault();
+    e.persist();
+
+    const inputField = e.target.querySelector('input[type="email"]');
+    
+    if (!inputField.value) {
+      toast.error("Le champ est vide. Veuillez saisir un message.");
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        "service_r5bvgyk",
+        "template_ox3up0t",
+        e.target,
+        "7aCKLCzGFOLE9TDS0"
+      )
+      .then(
+        (result) => {
+          console.log("message envoyé avec succès!")
+          toast.success("message envoyé avec succès")
+        },
+        (error) => {
+          toast.error("Quelque chose c'est mal passé. Merci d'essayer plus tard");
+          console.log("Quelque chose c'est mal passé. Merci d'essayer plus tard")
+        }
+      );
+
+    // Clears the form after sending the email
+    e.target.reset();
+  };
+
   return (
     <div className="overflow-x-hidden max-w-screen font-poppins">
       <div className="sm:flex justify-between py-10 px-8 grid bg-gray-200">
@@ -11,9 +48,9 @@ const Footer = () => {
             Global Immobilier
           </h1>
           <p className="py-4">
-          Fondée en 2021, notre agence s'impose par son approche unique du marché. 
-          Nous connectons les investisseurs avec des propriétés d'exception grâce à 
-          une expertise pointue et des stratégies d'investissement personnalisées.
+            Fondée en 2021, notre agence s'impose par son approche unique du marché.
+            Nous connectons les investisseurs avec des propriétés d'exception grâce à
+            une expertise pointue et des stratégies d'investissement personnalisées.
           </p>
           <div className="flex md:w-[75%] justify-around my-6">
             <span className='text-[#477998]/70 hover:text-[#477998]'><FaFacebookSquare size={30} className="cursor-pointer " /></span>
@@ -31,16 +68,16 @@ const Footer = () => {
             </p>
           </div>
           <div className="my-4">
-            <div className="justify-center flex">
+            <form onSubmit={sendEmail} className="justify-center flex">
               <input
                 className="placeholder:pl-2 flex sm:mr-[-50px] h-10 sm:w-[50%]  sm:h-[47px] mx-auto rounded-md text-black"
                 type="email"
                 placeholder="Entez votre E-Mail"
               />
-              <button className="bg-[#477998]/70 mx-auto w-28 leading-none hover:bg-[#477998] rounded-md font-medium text-white">
+              <button type='submit' className="bg-[#477998]/70 mx-auto w-28 leading-none hover:bg-[#477998] rounded-md font-medium text-white">
                 Inscrivez-vous
               </button>
-            </div>
+            </form>
             <p className="text-sm mx-10 flex-col text-center pt-4">
               Nous prenons soin de la protection de vos données. Lisez notre{" "}
               <Link to="/terms" className="underline cursor-pointer text-blue-500">

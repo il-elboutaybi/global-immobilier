@@ -22,7 +22,6 @@ const Contact = () => {
       .then(result => {
         toast.success("Votre message a été envoyé avec succès");
         clearFields();
-        console.log(result);
       })
       .catch(err => {
         if (err.response) {
