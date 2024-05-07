@@ -5,10 +5,9 @@ import Features from "../../features/Features";
 import Cards from "../../cards/Cards";
 import CallToAction from "../../call_to_action/CallToAction";
 import Review from "../../review/Review";
-import Footer from "../../footer/Footer";
 
 const HomePage = () => {
-  
+
   useEffect(() => {
     // Function to load the Kommunicate chat script
     const loadKommunicateScript = () => {
@@ -38,7 +37,7 @@ const HomePage = () => {
 
   return (
     <>
-    
+
       <HeroSection />
       <Features />
       <Cards />
@@ -47,7 +46,7 @@ const HomePage = () => {
       {/* Chat component starts */}
       <div id="kommunicate-chat-widget-mount-point"></div>
       {/* Chat component ends */}
-      
+
     </>
   )
 }
