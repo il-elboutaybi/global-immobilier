@@ -13,33 +13,32 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:3000/contact', {
+    axios.post('http://localhost:5000/contact', {
       entreprise,
       email,
       telephone,
       message
     })
-    .then(result => {
-      toast.success("Votre message a été envoyé avec succès");
-      clearFields(); 
-      console.log(result);
-    })
-    .catch(err => {
-      if (err.response) {
-        toast.error(err.response.data.message);
-      } else {
-        toast.error("Une erreur s'est produite. Veuillez réessayer."); 
-      }
-    });
-    clearFields();
-  }
+      .then(result => {
+        toast.success("Votre message a été envoyé avec succès");
+        clearFields();
+        console.log(result);
+      })
+      .catch(err => {
+        if (err.response) {
+          toast.error(err.response.data.message);
+        } else {
+          toast.error("Une erreur s'est produite. Veuillez réessayer.");
+        }
+      });
+  };
 
   const clearFields = () => {
     setEmail("");
     setEntreprise("");
     setMessage("");
     setTelephone("");
-  }
+  };
 
   return (
     <div>

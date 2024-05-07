@@ -11,7 +11,7 @@ const app = express();
 const __dirname = path.resolve(); // Get absolute path for portability
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use('/files', express.static(path.join(__dirname, 'files')));
 dotenv.config();
 
@@ -76,10 +76,10 @@ app.post('/contact', (req, res) => {
     }
 
     ContactModel.create(req.body)
-        .then(Contact => res.json(Contact))
-        .catch(err => res.json(err));
+      .then(Contact => res.json(Contact))
+      .catch(err => res.json(err));
 });
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log("server is running");
 });
