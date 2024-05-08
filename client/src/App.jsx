@@ -2,7 +2,7 @@ import {
   Route,
   createRoutesFromElements,
   createBrowserRouter,
-  RouterProvider,
+  RouterProvider
 } from "react-router-dom";
 import HomePage from './components/pages/homepage/HomePage';
 import About from './components/pages/about/About';
@@ -17,8 +17,8 @@ const App = () => {
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />} >
         <Route path="/" element={<HomePage />} />
-        <Route path="*" element={<NotFoundPage />} />
         <Route path="/services" element={<Services />} />
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/about" element={<About />} />
@@ -26,7 +26,9 @@ const App = () => {
     )
   );
 
-  return <RouterProvider router={router} />;
+  return (
+    <RouterProvider router={router}/>
+  );
 }
 
 export default App;

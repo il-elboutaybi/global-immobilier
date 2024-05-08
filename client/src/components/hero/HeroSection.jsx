@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import HeroImage from '../../assets/images/hero-image.jpg';
 import StarsImage from '../../assets/images/stars.png';
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (

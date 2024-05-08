@@ -1,10 +1,19 @@
+import { useLocation } from "react-router-dom";
 import ServicesIcon1 from "../../../assets/images/services-icons/services-1.png"
 import ServicesIcon2 from "../../../assets/images/services-icons/services-2.png";
 import ServicesIcon3 from "../../../assets/images/services-icons/services-3.png";
 import ServicesIcon4 from "../../../assets/images/services-icons/services-4.png";
 import Features from "../../features/Features";
+import { useEffect } from "react";
 
 const Services = () => {
+
+  const pathname = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname])
+
   return (
     <>
       <div className="max-w-screen overflow-hidden font-poppins">

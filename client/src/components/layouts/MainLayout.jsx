@@ -6,10 +6,10 @@ import { Toaster } from 'react-hot-toast';
 const MainLayout = () => {
   return (
     <>
-      <NavBar />
       <Outlet />
       <Footer />
-      <Toaster position="top-left"/>
+      <NavBar />
+      <Toaster position="bottom-right"/>
     </>
   );
 };

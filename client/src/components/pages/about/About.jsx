@@ -5,17 +5,25 @@ import { TfiTwitter } from 'react-icons/tfi';
 import { RxInstagramLogo } from 'react-icons/rx';
 import TeamImage from "../../../assets/images/team.jpg";
 import Location from "../../location/Location";
+import { useLocation } from "react-router-dom";
 
 
 const About = () => {
+  const pathname = useLocation();
   const ref = useRef();
   const isInView = useInView(ref);
   const mainControlls = useAnimation();
+
   useEffect(() => {
     if (isInView) {
       mainControlls.start("visible");
     }
   }, [isInView]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div>
       <div className="max-w-screen overflow-hidden font-poppins">

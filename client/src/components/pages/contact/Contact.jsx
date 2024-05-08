@@ -1,14 +1,20 @@
 import Location from "../../location/Location";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useLocation } from "react-router-dom";
 
 const Contact = () => {
 
+  const pathname = useLocation()
   const [entreprise, setEntreprise] = useState("");
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname])
 
   const handleSubmit = (e) => {
     e.preventDefault();

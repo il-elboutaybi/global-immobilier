@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaFacebookSquare, FaInstagram, FaTwitterSquare } from 'react-icons/fa'
-import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
 

@@ -1,12 +1,18 @@
 import React, { useEffect } from 'react';
-import NavBar from "../../navigation/NavBar";
 import HeroSection from "../../hero/HeroSection";
 import Features from "../../features/Features";
 import Cards from "../../cards/Cards";
 import CallToAction from "../../call_to_action/CallToAction";
 import Review from "../../review/Review";
+import { useLocation } from 'react-router-dom';
 
 const HomePage = () => {
+
+  const pathname = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
 
   useEffect(() => {
     // Function to load the Kommunicate chat script
