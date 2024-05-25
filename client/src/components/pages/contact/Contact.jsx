@@ -19,7 +19,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:5000/contact', {
+    axios.post('https://global-immobilier.azurewebsites.net/contact', {
       entreprise,
       email,
       telephone,
