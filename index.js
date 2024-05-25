@@ -3,21 +3,21 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import path from 'path';
 import multer from 'multer';
-import RecrutementModel from './models/Recrutement.js';
-import ContactModel from './models/Contact.js';
+import RecrutementModel from './server/models/Recrutement.js';
+import ContactModel from './server/models/Contact.js';
 import dotenv from 'dotenv';
 
 const app = express();
 const __dirname = path.resolve(); // Get absolute path for portability
 
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
+// })
 app.use(express.json());
 app.use(cors());
 app.use('/files', express.static(path.join(__dirname, 'files')));
 dotenv.config();
-app.use(express.static("./client/dist"))
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
-})
+// app.use(express.static("./client/dist"))
 
 // Connect to MongoDB using an async IIFE for cleaner connection handling
 (async () => {
