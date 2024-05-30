@@ -12,12 +12,17 @@ const __dirname = path.resolve(); // Get absolute path for portability
 
 app.use(express.json());
 app.use(cors());
-app.use('/files', express.static(path.join(__dirname, 'files')));
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
+
 dotenv.config();
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
 // })
 // app.use(express.static("./client/dist"))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
+});
 
 // Connect to MongoDB using an async IIFE for cleaner connection handling
 (async () => {
