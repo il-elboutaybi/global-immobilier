@@ -11,14 +11,39 @@ const app = express();
 const __dirname = path.resolve(); // Get absolute path for portability
 
 app.use(express.json());
-app.use(cors());
-app.use(express.static(path.join(__dirname, 'client', 'dist')));
+app.use(cors({ origin: ['http://localhost:5000', 'https://global-immobilier.azurewebsites.net'] }));
+app.use('/files', express.static(path.join(__dirname, 'files')));
 
+const allowedOrigins = ['http://localhost:5000', 'https://global-immobilier-1.onrender.com'];
+
+app.use(cors({
+  origin: function(origin, callback){
+    // allow requests with no origin 
+    // (like mobile apps or curl requests)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = 'The CORS policy for this site does not ' + 
+                  'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
+}));
+
+
+app.use(express.static(path.join(__dirname, 'client', 'dist')));
 dotenv.config();
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "client", "dist", "index.html"))
 // })
 // app.use(express.static("./client/dist"))
+
+// app.options('*', function (req, res) {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader('Access-Control-Allow-Methods', '*');
+//   res.setHeader("Access-Control-Allow-Headers", "*");
+//   res.end();
+// });
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
